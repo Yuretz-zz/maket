@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .wrapper {
+            width: 580px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            position: absolute;
+        }
+
+        .bg {
+            top: 0;
+            left: 0;
+        }
+
+        .light {
+            width: 180px;
+            height: 230px;
+            position: absolute;
+            top: 130px;
+            left: 112px;
+            background: linear-gradient(transparent 20%, rgba(255, 255, 255, .5) 50%, transparent 80%);
+            /* background-image: url(mask.png); */
+            background-repeat: no-repeat;
+            background-position-y: 180px;
+            mask-image: url(mask.png);
+            -webkit-mask-image: url(mask.png);
+            transform: scale(1);
+
+            animation: light_animate 6s infinite;
+        }
+
+        .text_1,
+        .text_2 {
+            top: 140px;
+            right: 38px;
+            opacity: 0;
+        }
+
+        .text_1 {
+            animation: text_animate 6s ease-in-out infinite;
+        }
+
+        .text_2 {
+            animation: text_animate 6s 3s ease-in-out infinite;
+        }
+
+        .amp_1,
+        .amp_2 {
+            height: 220px;
+        }
+        
+        .amp_1 {
+            top: 170px;
+            left: 310px;
+            transform: rotate(35deg);
+            animation: amp_1_animate 2s ease-in-out alternate infinite;
+        }
+
+        .amp_2 {
+            top: 230px;
+            left: 345px;
+            transform: rotate(23deg);
+            animation: amp_2_animate 2s .5s ease-in-out alternate infinite;
+        }
+
+        @keyframes text_animate {
+            0%{opacity: 0; transform: translateX(100px);}
+            10%{opacity: 1; transform: translateX(0px);}
+            40%{opacity: 1;}
+            50%{opacity: 0;}
+        }
+
+        @keyframes amp_1_animate {
+            0%{transform: translateY(0px) rotate(35deg);}
+            100%{transform: translateY(30px) rotate(25deg);}
+        }
+
+        @keyframes amp_2_animate {
+            0%{transform: translateY(0px) rotate(23deg);}
+            100%{transform: translateY(30px) rotate(20deg);}
+        }
+
+        @keyframes light_animate {
+            
+            60%{background-position-y: 180px;}
+            100%{background-position-y: -180px;}
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <img class="bg" src="bg.jpg" alt="Babor">
+        <img class="text_1" src="text_1.png" alt="Text_1">
+        <img class="text_2" src="text_2.png" alt="Text_2">
+        <div class="light"></div>
+        <img class="amp_1" src="amp_1.png" alt="Ampoule">
+        <img class="amp_2" src="amp_2.png" alt="Ampoule">
+        
+    </div>
+    
+</body>
+</html>
